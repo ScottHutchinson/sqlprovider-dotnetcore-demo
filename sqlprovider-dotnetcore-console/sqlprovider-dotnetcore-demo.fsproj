@@ -9,18 +9,13 @@
 
   <ItemGroup>
     <Compile Include="Program.fs" />
-    <None Include="appSettings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
 </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.1" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.1" />
     <PackageReference Include="SqlProvider" Version="1.1.38" />
     <PackageReference Include="System.Data.SqlClient" Version="4.4.3" />
   </ItemGroup>
   <Target Name="PreBuild" AfterTargets="PreBuildEvent">
-      <Exec Command="copy ..\..\..\..\.nuget\packages\System.Data.SqlClient\4.4.3\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll bin\Debug\netcoreapp2.0\" />
+      <Exec Command="copy ..\..\..\..\..\.nuget\packages\System.Data.SqlClient\4.4.3\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll bin\Debug\netcoreapp2.0\" />
   </Target>
 </Project>
