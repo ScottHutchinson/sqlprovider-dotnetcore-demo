@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Library.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SqlProvider" Version="1.1.26" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.4.3" />
+  </ItemGroup>
+  <Target Name="PreBuild" AfterTargets="PreBuildEvent">
+      <Exec Command="copy ..\..\..\..\.nuget\packages\System.Data.SqlClient\4.4.3\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll bin\Debug\netstandard2.0\" />
+  </Target>
+
+</Project>
