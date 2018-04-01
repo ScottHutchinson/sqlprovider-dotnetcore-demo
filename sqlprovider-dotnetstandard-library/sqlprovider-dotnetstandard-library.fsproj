@@ -1,13 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="fsc.props" />
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
+  <!-- <PropertyGroup Condition="'$(IsWindows)' == 'true' AND Exists('C:\Program Files (x86)\Microsoft SDKs\F#\10.1\Framework\v4.0\fsc.exe')">
+    <FscToolPath>C:\Program Files (x86)\Microsoft SDKs\F#\10.1\Framework\v4.0</FscToolPath>
+    <FscToolExe>fsc.exe</FscToolExe>
+  </PropertyGroup> -->
 
   <ItemGroup>
     <Compile Include="Library.fs" />
+    <Compile Include="File1.fs" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="SqlProvider" Version="1.1.26" />
     <PackageReference Include="System.Data.SqlClient" Version="4.4.3" />
