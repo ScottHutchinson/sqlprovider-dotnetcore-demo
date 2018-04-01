@@ -1,14 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="fsc.props" />
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  <!-- <PropertyGroup Condition="'$(IsWindows)' == 'true' AND Exists('C:\Program Files (x86)\Microsoft SDKs\F#\10.1\Framework\v4.0\fsc.exe')">
+  <PropertyGroup Condition="'$(IsWindows)' == 'true' AND Exists('C:\Program Files (x86)\Microsoft SDKs\F#\10.1\Framework\v4.0\fsc.exe')">
     <FscToolPath>C:\Program Files (x86)\Microsoft SDKs\F#\10.1\Framework\v4.0</FscToolPath>
     <FscToolExe>fsc.exe</FscToolExe>
-  </PropertyGroup> -->
-
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Library.fs" />
     <Compile Include="File1.fs" />
@@ -20,5 +17,4 @@
   <Target Name="PreBuild" AfterTargets="PreBuildEvent">
       <Exec Command="copy ..\..\..\..\.nuget\packages\System.Data.SqlClient\4.4.3\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll bin\Debug\netstandard2.0\" />
   </Target>
-
 </Project>
