@@ -1,4 +1,5 @@
 ﻿// Learn more about F# at http://fsharp.org
+//#r "compiletime/FSharp.Data.SqlProvider.dll"
 
 open System
 open FSharp.Data.Sql

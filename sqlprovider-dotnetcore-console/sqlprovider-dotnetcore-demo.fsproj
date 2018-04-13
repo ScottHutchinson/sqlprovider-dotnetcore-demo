@@ -12,10 +12,21 @@
 </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="SqlProvider" Version="1.1.38" />
+    <PackageReference Include="SqlProvider" Version="1.1.38">
+	   <ExcludeAssets>compile</ExcludeAssets>
+	</PackageReference>
     <PackageReference Include="System.Data.SqlClient" Version="4.4.3" />
   </ItemGroup>
-  <Target Name="PreBuild" AfterTargets="PreBuildEvent">
-      <Exec Command="copy ..\..\..\..\..\.nuget\packages\System.Data.SqlClient\4.4.3\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll bin\Debug\netcoreapp2.0\" />
+  <ItemGroup>
+    <Reference Include="FSharp.Data.SqlProvider">
+      <HintPath>compiletime/FSharp.Data.SqlProvider.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Exec Command="copy %USERPROFILE%\.nuget\packages\System.Data.SqlClient\4.4.3\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll bin\Debug\netcoreapp2.0\" />
+      <Exec Command="xcopy %USERPROFILE%\.nuget\packages\SQLProvider\1.1.38\lib\net451\FSharp.Data.SqlProvider.dll bin\Debug\netcoreapp2.0\ /y" />
+  </Target>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="xcopy %USERPROFILE%\.nuget\packages\SQLProvider\1.1.38\lib\net451\FSharp.Data.SqlProvider.dll compiletime\ /y" />
   </Target>
 </Project>
