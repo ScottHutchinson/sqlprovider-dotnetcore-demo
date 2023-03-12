@@ -12,7 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="SqlProvider" Version="1.1.26" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.4.3" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
   <Target Name="PreBuild" AfterTargets="PreBuildEvent">
       <Exec Command="copy ..\..\..\..\.nuget\packages\System.Data.SqlClient\4.4.3\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll bin\Debug\netstandard2.0\" />
